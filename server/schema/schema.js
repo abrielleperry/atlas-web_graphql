@@ -6,6 +6,11 @@ const tasks = [
   { id: '2', title: 'Structure your webpage', weight: 1, description: 'Copy the content of 0-index.html into 1-index.html Create the head and body sections inside the html tag, create the head and body tags (empty) in this order' }
 ];
 
+const projects = [
+  { id: '1', title: 'Advanced HTML', weight: 1, description: 'Welcome to the Web Stack specialization...' },
+  { id: '2', title: 'Bootstrap', weight: 1, description: 'Bootstrap is a free and open-source CSS framework...' }
+];
+
 const ProjectType = new GraphQLObjectType({
   name: 'Project',
   fields: {
@@ -46,10 +51,6 @@ const RootQuery = new GraphQLObjectType({
   },
 });
 
-const projects = [
-  { id: '1', title: 'Advanced HTML', weight: 1, description: 'Welcome to the Web Stack specialization...' },
-  { id: '2', title: 'Bootstrap', weight: 1, description: 'Bootstrap is a free and open-source CSS framework...' }
-];
 
 module.exports = new GraphQLSchema({
   query: RootQuery
