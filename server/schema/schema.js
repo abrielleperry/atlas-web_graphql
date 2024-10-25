@@ -6,6 +6,16 @@ const tasks = [
   { id: '2', title: 'Structure your webpage', weight: 1, description: 'Copy the content of 0-index.html into 1-index.html Create the head and body sections inside the html tag, create the head and body tags (empty) in this order' }
 ];
 
+const ProjectType = new GraphQLObjectType({
+  name: 'Project',
+  fields: {
+    id: { type: GraphQLString },
+    title: { type: GraphQLString },
+    weight: { type: GraphQLInt },
+    description: { type: GraphQLString }
+  }
+});
+
 const TaskType = new GraphQLObjectType({
   name: 'Task',
   fields: {
