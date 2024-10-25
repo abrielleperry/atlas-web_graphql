@@ -46,6 +46,11 @@ const RootQuery = new GraphQLObjectType({
   },
 });
 
+const projects = [
+  { id: '1', title: 'Advanced HTML', weight: 1, description: 'Welcome to the Web Stack specialization...' },
+  { id: '2', title: 'Bootstrap', weight: 1, description: 'Bootstrap is a free and open-source CSS framework...' }
+];
+
 module.exports = new GraphQLSchema({
   query: RootQuery
 });
