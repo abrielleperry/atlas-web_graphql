@@ -1,4 +1,5 @@
 const { GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLSchema } = require('graphql');
+const _ = require('lodash');
 
 const TaskType = new GraphQLObjectType({
   name: 'Task',
