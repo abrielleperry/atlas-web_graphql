@@ -23,12 +23,7 @@ const RootQuery = new GraphQLObjectType({
       type: TaskType,
       args: { id: { type: GraphQLString } },
       resolve(parent, args) {
-        return {
-          id: args.id,
-          title: 'Sample Task',
-          weight: 10,
-          description: 'A sample task description'
-        };
+        return _.find(tasks, { id: args.id });
       },
     },
   },
