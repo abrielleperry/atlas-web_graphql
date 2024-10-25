@@ -15,9 +15,10 @@ const RootQuery = new GraphQLObjectType({
   fields: {
     task: {
       type: TaskType,
+      args: { id: { type: GraphQLString } },
       resolve(parent, args) {
         return {
-          id: '1',
+          id: args.id,
           title: 'Sample Task',
           weight: 10,
           description: 'A sample task description'
