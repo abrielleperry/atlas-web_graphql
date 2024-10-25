@@ -19,13 +19,13 @@ const RootQuery = new GraphQLObjectType({
         return {
           id: '1',
           title: 'Sample Task',
-          weight: 3,
+          weight: 10,
           description: 'A sample task description'
-        }
-      }
-    }
-  }
-})
+        };
+      },
+    },
+  },
+});
 
 module.exports = new GraphQLSchema({
   query: RootQuery
