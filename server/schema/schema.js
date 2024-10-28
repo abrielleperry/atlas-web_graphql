@@ -4,7 +4,8 @@ const {
   GraphQLInt,
   GraphQLSchema,
   GraphQLID,
-  GraphQLList
+  GraphQLList,
+  GraphQLScalarType
 } = require('graphql');
 const _ = require('lodash');
 
@@ -67,6 +68,28 @@ const RootQuery = new GraphQLObjectType({
       args: { id: { type: GraphQLID } },
       resolve(parent, args) {
         return _.find(projects, { id: args.id });
+      },
+    },
+    taskWithProject: {
+      type: TaskType,
+      args: { id: { type: GraphQLString } },
+      resolve(parent, args) {
+        const task = _.find(tasks, { id: args.id });
+        if (!task) {
+          throw new Error(`Task with ID ${args.id} not found`);
+        }
+        return task;
+      },
+    },
+    projectWithTasks: {
+      type: ProjectType,
+      args: { id: { type: GraphQLID } },
+      resolve(parent, args) {
+        const project = _.find(project, { id: args.id })
+        if (!project) {
+          throw new Error(`Project with ID ${args.id} not found`)
+        }
+        return project;
       },
     },
   },
