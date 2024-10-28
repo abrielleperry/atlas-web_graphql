@@ -1,4 +1,4 @@
-query {
+{
   project(id: "1") {
     title
     weight

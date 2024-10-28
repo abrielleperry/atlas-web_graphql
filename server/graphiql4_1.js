@@ -1,4 +1,4 @@
-query {
+{
   task(id: "2") {
     title
     weight
