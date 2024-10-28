@@ -29,12 +29,19 @@ const ProjectType = new GraphQLObjectType({
 
 const TaskType = new GraphQLObjectType({
   name: 'Task',
-  fields: {
+  fields: () => ({
     id: { type: GraphQLID },
     title: { type: GraphQLString },
     weight: { type: GraphQLInt },
-    description: { type: GraphQLString }
-  }
+    description: { type: GraphQLString },
+    project: {
+      type: ProjectType,
+      args: { id: { type: GraphQLID } },
+      resolve(parent, args) {
+        return _.find(projects, { id: args.id })
+      },
+    }
+  })
 });
 
 const RootQuery = new GraphQLObjectType({
