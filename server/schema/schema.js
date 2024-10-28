@@ -47,7 +47,11 @@ const TaskType = new GraphQLObjectType({
       type: ProjectType,
       args: { id: { type: GraphQLID } },
       resolve(parent, args) {
-        return _.find(projects, { id: args.id })
+        const task = _.find(tasks, {id: parent.id })
+        if (!task || !task.projectId) {
+          return null;
+        }
+        return _.find(projects, { id: task.projectId })
       },
     }
   })
