@@ -3,7 +3,8 @@ const {
   GraphQLString,
   GraphQLInt,
   GraphQLSchema,
-  GraphQLID
+  GraphQLID,
+  GraphQLList
 } = require('graphql');
 const _ = require('lodash');
 
@@ -19,12 +20,19 @@ const projects = [
 
 const ProjectType = new GraphQLObjectType({
   name: 'Project',
-  fields: {
+  fields: () => ({
     id: { type: GraphQLID },
     title: { type: GraphQLString },
     weight: { type: GraphQLInt },
-    description: { type: GraphQLString }
-  }
+    description: { type: GraphQLString },
+    tasks: {
+      type: new GraphQLList(TaskType),
+      args: { projectId: { type: GraphQLID } },
+      resolve(parent, args) {
+        return _.filter(tasks, task => task.projectId === args.projectId);
+      },
+    }
+  })
 });
 
 const TaskType = new GraphQLObjectType({
