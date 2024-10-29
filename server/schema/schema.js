@@ -96,6 +96,18 @@ const RootQuery = new GraphQLObjectType({
         return project;
       },
     },
+    allProjects: {
+      type: new GraphQLList(ProjectType),
+      resolve() {
+        return projects;
+      },
+    },
+    allTasks: {
+      type: new GraphQLList(TaskType),
+      resolve() {
+        return tasks;
+      },
+    },
   },
 });
 
