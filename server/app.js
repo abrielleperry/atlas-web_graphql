@@ -5,10 +5,11 @@ const schema = require('./schema/schema');
 
 const app = express();
 
-mongoose.connect('mongodb+srv://username:password123!@cluster0.6088g.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
+mongoose.connect('mongodb+srv://username:password123!@cluster0.6088g.mongodb.net/myDatabaseName?retryWrites=true&w=majority&appName=Cluster0', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
+
 
 app.use('/graphql', graphqlHTTP({
   schema,
