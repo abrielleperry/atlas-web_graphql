@@ -28,9 +28,8 @@ const ProjectType = new GraphQLObjectType({
     description: { type: GraphQLString },
     tasks: {
       type: new GraphQLList(TaskType),
-      args: { projectId: { type: GraphQLID } },
-      resolve(parent, args) {
-        return _.filter(tasks, task => task.projectId === args.projectId);
+      resolve(parent) {
+        return _.filter(tasks, task => task.projectId === parent.id);
       },
     }
   })
@@ -89,11 +88,11 @@ const RootQuery = new GraphQLObjectType({
       type: ProjectType,
       args: { id: { type: GraphQLID } },
       resolve(parent, args) {
-        const project = _.find(project, { id: args.id })
-        if (!project) {
-          throw new Error(`Project with ID ${args.id} not found`)
-        }
-        return project;
+      const project = _.find(projects, { id: args.id });
+      if (!project) {
+        throw new Error(`Project with ID ${args.id} not found`);
+      }
+      return project;
       },
     },
     allProjects: {
