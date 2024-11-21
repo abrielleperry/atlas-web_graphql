@@ -1,12 +1,10 @@
-const {
-  GraphQLObjectType,
-  GraphQLString,
-  GraphQLInt,
-  GraphQLSchema,
-  GraphQLID,
-  GraphQLList,
-  GraphQLNonNull
-} = require('graphql');
+const GraphQLObjectType = require('graphql').GraphQLObjectType;
+const GraphQLString = require('graphql').GraphQLString;
+const GraphQLInt = require('graphql').GraphQLInt;
+const GraphQLSchema = require('graphql').GraphQLSchema;
+const GraphQLID = require('graphql').GraphQLID;
+const GraphQLList = require('graphql').GraphQLList;
+const GraphQLNonNull = require('graphql').GraphQLNonNull;
 const Project = require('../models/project');
 const Task = require('../models/task');
 
