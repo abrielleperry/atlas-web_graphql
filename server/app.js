@@ -1,11 +1,9 @@
 const mongoose = require('mongoose');
-const cors = require('cors');
 const express = require('express');
 const { graphqlHTTP } = require('express-graphql');
 const schema = require('./schema/schema');
 
 const app = express();
-app.use(cors());
 
 mongoose.connect('mongodb+srv://abrielleperry22:m5MFaOfAuit571pL@filesmanager.x25kz.mongodb.net/?retryWrites=true&w=majority&appName=FilesManager', {
 });
