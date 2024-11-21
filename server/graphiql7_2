@@ -1,5 +1,5 @@
-mutation {
-  addTask(id: "3", title: "Reboot styling", weight: 2, description: "Add Bootstrap to reset the CSS styling.", project: "1") {
+{
+  addTask(id: "2", title: "Reboot styling", weight: 2, description: "Add Bootstrap to reset the CSS styling.") {
     title
     weight
     description
